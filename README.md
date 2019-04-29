@@ -1,2 +1,2 @@
 # unit-4-game
-a jquery game project
+A fun little game utilizing Jquery
