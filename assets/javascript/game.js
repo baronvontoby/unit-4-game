@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var targetRandomNumber = Math.floor(Math.random()*100 +1);
+    var targetRandomNumber = Math.floor(Math.random()*50 +1);
     var crystalRandomNumber1 = Math.floor(Math.random()*10 +1);
     var crystalRandomNumber2 = Math.floor(Math.random()*10 +1);
     var crystalRandomNumber3 = Math.floor(Math.random()*10 +1);
@@ -17,9 +17,9 @@ $(document).ready(function() {
     crystal3 = crystalRandomNumber3;
     crystal4 = crystalRandomNumber4;
     
-    $("#goal-number").text(targetRandomNumber);
-    $("#losses").text(losses);
-    $("#wins").text(wins);
+    $("#goal-number").html(targetRandomNumber);
+    $("#losses").html(losses);
+    $("#wins").html(wins);
     $("#total-number").html(totalNumberGuessed)
     
     
@@ -66,7 +66,7 @@ var game = function () {
             wins++;
             $("#wins").html(wins);
             $("#total-number").html(totalNumberGuessed);
-            randomizer();      
+            randomizer();  
         }
         
         else if ( totalNumberGuessed>targetRandomNumber ) {
@@ -87,9 +87,14 @@ var randomizer = function () {
     crystal2 = crystalRandomNumber2;
     crystal3 = crystalRandomNumber3;
     crystal4 = crystalRandomNumber4;
-    var targetRandomNumber = Math.floor(Math.random()*100 +1);
-    $("#goal-number").text(targetRandomNumber)
 }
+
+var rando = function () {
+    if (wins++||losses++) {
+    var targetRandomNumber = Math.floor(Math.random()*50 +1);
+    $("#goal-number").html(targetRandomNumber)
+    }
+};
 })
                 
                 
