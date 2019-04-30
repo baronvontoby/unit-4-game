@@ -90,7 +90,7 @@ var randomizer = function () {
 }
 
 var rando = function () {
-    if (wins++||losses++) {
+    if () {
     var targetRandomNumber = Math.floor(Math.random()*50 +1);
     $("#goal-number").html(targetRandomNumber)
     }
