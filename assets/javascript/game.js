@@ -16,10 +16,11 @@ $(document).ready(function() {
     crystal2 = crystalRandomNumber2;
     crystal3 = crystalRandomNumber3;
     crystal4 = crystalRandomNumber4;
-
+    
     $("#goal-number").text(targetRandomNumber);
     $("#losses").text(losses);
     $("#wins").text(wins);
+    $("#total-number").html(totalNumberGuessed)
     
     
     
@@ -30,36 +31,65 @@ $(document).ready(function() {
     
     $("#crystal1").on("click", function(){
         totalNumberGuessed = totalNumberGuessed + crystal1;
+        $("#total-number").html(totalNumberGuessed);
         console.log(totalNumberGuessed);
+        game();
     });
     
     $("#crystal2").on("click", function(){
         totalNumberGuessed = totalNumberGuessed + crystal2;
-        console.log(totalNumberGuessed);      
+        $("#total-number").html(totalNumberGuessed);
+        console.log(totalNumberGuessed);
+        game();      
     });
     
     $("#crystal3").on("click", function(){
         totalNumberGuessed = totalNumberGuessed + crystal3;
+        $("#total-number").html(totalNumberGuessed);
         console.log(totalNumberGuessed);
+        game();
     });
     
     $("#crystal4").on("click", function(){
         totalNumberGuessed = totalNumberGuessed + crystal4;
-        console.log(totalNumberGuessed);   
+        $("#total-number").html(totalNumberGuessed);
+        console.log(totalNumberGuessed);  
+        game(); 
     });
     
-    // $("#total-number").(totalNumberGuessed)
     
     
-    if (totalNumberGuessed == targetRandomNumber) {
+var game = function () {
+    
+        if (totalNumberGuessed == targetRandomNumber) {
             totalNumberGuessed = 0;
-            wins++;      
+            wins++;
+            $("#wins").html(wins);
+            $("#total-number").html(totalNumberGuessed);
+            randomizer();      
         }
         
-    else if ( totalNumberGuessed>targetRandomNumber ) {
+        else if ( totalNumberGuessed>targetRandomNumber ) {
             totalNumberGuessed = 0;
             losses++;
+            $("#losses").html(losses);
+            $("#total-number").html(totalNumberGuessed);
+            randomizer();
+        }
     };
+
+var randomizer = function () {
+    var crystalRandomNumber1 = Math.floor(Math.random()*10 +1);
+    var crystalRandomNumber2 = Math.floor(Math.random()*10 +1);
+    var crystalRandomNumber3 = Math.floor(Math.random()*10 +1);
+    var crystalRandomNumber4 = Math.floor(Math.random()*10 +1);
+    crystal1 = crystalRandomNumber1;
+    crystal2 = crystalRandomNumber2;
+    crystal3 = crystalRandomNumber3;
+    crystal4 = crystalRandomNumber4;
+    var targetRandomNumber = Math.floor(Math.random()*100 +1);
+    $("#goal-number").text(targetRandomNumber)
+}
 })
                 
                 
